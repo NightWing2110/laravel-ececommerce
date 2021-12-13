@@ -13,7 +13,8 @@
                 <div class="col-md-12 mb-3">
                     <select class="form-select" name="category_id">
                         @foreach ($categories as $item)
-                        <option value="{{ $item->id }}" @if($blogs->category_id == $item->id) selected @endif>{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" @if($blogs->category_id == $item->id) selected @endif>{{
+                            $item->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,14 +32,14 @@
                     <label for="">New Post</label>
                     <input type="checkbox" name="new_post" {{ $blogs->new_post == '1' ? 'checked' : '' }}>
                 </div>
-                
+
                 <div class="col-md-12">
                     <label for="">Highlight Post</label>
                     <input type="checkbox" name="highlight_post" {{ $blogs->highlight_post == '1' ? 'checked' : '' }}>
                 </div>
 
                 @if ($blogs->image)
-                    <img src="{{ asset('assets/uploads/blog/'.$blogs->image) }}" width="100px" alt="Product Image here">
+                <img src="{{ asset('assets/uploads/blog/'.$blogs->image) }}" width="100px" alt="Product Image here">
                 @endif
                 <div class="col-md-12">
                     <input type="file" name="image" class="form-control" accept="image/*" />

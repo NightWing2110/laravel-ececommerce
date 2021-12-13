@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function users(){
+    public function users()
+    {
         $users = User::all();
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
-    public function viewuser($id){
+    public function viewuser($id)
+    {
         $users = User::find($id);
-        return view('admin.users.view',compact('users'));
+        return view('admin.users.view', compact('users'));
     }
 }

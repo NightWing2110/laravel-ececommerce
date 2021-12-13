@@ -11,7 +11,7 @@ class ContactController extends Controller
     public function contacts()
     {
         $contact = Contact::all();
-        return view('admin.contact',compact('contact'));
+        return view('admin.contact', compact('contact'));
     }
 
     public function delete($id)

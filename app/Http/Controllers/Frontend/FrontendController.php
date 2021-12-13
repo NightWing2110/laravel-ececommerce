@@ -16,11 +16,13 @@ class FrontendController extends Controller
     {
         $featured_products =  Product::where('trending', '1')->take(15)->get();
         $trending_category = Category::where('popular', '1')->take(15)->get();
-        $cellphone = Product::where('cate_id','2')->take(15)->get();
-        $laptop = Product::where('cate_id','3')->take(15)->get();
-        $tablet = Product::where('cate_id','4')->take(15)->get();
-        $wristwatch = Product::where('cate_id','5')->take(15)->get();
-        return view('frontend.index', compact('featured_products', 'trending_category','cellphone','laptop','tablet','wristwatch'));
+        $cellphone = Product::where('cate_id', '2')->take(15)->get();
+        $laptop = Product::where('cate_id', '3')->take(15)->get();
+        $tablet = Product::where('cate_id', '4')->take(15)->get();
+        $wristwatch = Product::where('cate_id', '5')->take(15)->get();
+        $categorylist = Category::where('status', '0')->get();
+        // dd($categorylist);
+        return view('frontend.index', compact('featured_products', 'trending_category', 'cellphone', 'laptop', 'tablet', 'wristwatch', 'categorylist'));
     }
 
     public function category()
@@ -45,17 +47,15 @@ class FrontendController extends Controller
                 $products = Product::where('slug', $prod_slug)->first();
                 $ratings = Rating::where('prod_id', $products->id)->get();
                 $rating_sum = Rating::where('prod_id', $products->id)->sum('stars_rated');
-                $user_rating = Rating::where('prod_id', $products->id)->where('user_id',Auth::id())->first();
-                $reviews = Review::where('prod_id',$products->id)->get();
+                $user_rating = Rating::where('prod_id', $products->id)->where('user_id', Auth::id())->first();
+                $reviews = Review::where('prod_id', $products->id)->get();
 
                 if ($ratings->count() > 0) {
                     $rating_value = $rating_sum / $ratings->count();
-                }
-                else
-                {
+                } else {
                     $rating_value = 0;
                 }
-                return view('frontend.products.view', compact('products', 'ratings', 'rating_value','user_rating','reviews'));
+                return view('frontend.products.view', compact('products', 'ratings', 'rating_value', 'user_rating', 'reviews'));
             } else {
                 return redirect('/')->with('status', 'The link was broken');
             }
@@ -66,22 +66,19 @@ class FrontendController extends Controller
 
     public function product($prod_slug)
     {
-        if(Product::where('slug',$prod_slug)->exists()){
-            $product = Product::where('slug',$prod_slug)->first();
+        if (Product::where('slug', $prod_slug)->exists()) {
+            $product = Product::where('slug', $prod_slug)->first();
             $ratings = Rating::where('prod_id', $product->id)->get();
             $rating_sum = Rating::where('prod_id', $product->id)->sum('stars_rated');
-            $user_rating = Rating::where('prod_id', $product->id)->where('user_id',Auth::id())->first();
-            $reviews = Review::where('prod_id',$product->id)->get();
+            $user_rating = Rating::where('prod_id', $product->id)->where('user_id', Auth::id())->first();
+            $reviews = Review::where('prod_id', $product->id)->get();
 
             if ($ratings->count() > 0) {
                 $rating_value = $rating_sum / $ratings->count();
-            }
-            else
-            {
+            } else {
                 $rating_value = 0;
             }
-            return view('frontend.products.viewproduct',compact('product', 'ratings', 'rating_value','user_rating','reviews'));
+            return view('frontend.products.viewproduct', compact('product', 'ratings', 'rating_value', 'user_rating', 'reviews'));
         }
-
     }
 }

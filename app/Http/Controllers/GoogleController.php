@@ -22,16 +22,16 @@ class GoogleController extends Controller
 
             // Check Users Email If Already There
             $is_user = User::where('email', $user->getEmail())->first();
-            if(!$is_user){
+            if (!$is_user) {
 
                 $saveUser = User::updateOrCreate([
                     'google_id' => $user->getId(),
-                ],[
+                ], [
                     'name' => $user->getName(),
                     'email' => $user->getEmail(),
-                    'password' => Hash::make($user->getName().'@'.$user->getId())
+                    'password' => Hash::make($user->getName() . '@' . $user->getId())
                 ]);
-            }else{
+            } else {
                 $saveUser = User::where('email',  $user->getEmail())->update([
                     'google_id' => $user->getId(),
                 ]);

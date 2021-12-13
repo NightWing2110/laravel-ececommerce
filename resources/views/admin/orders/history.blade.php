@@ -24,15 +24,15 @@
                         <tbody>
 
                             @foreach ($orders as $item)
-                                <tr>
-                                    <td>{{ date('d-m-Y',strtotime($item->created_at)) }}</td>
-                                    <td>{{ $item->tracking_no }}</td>
-                                    {{-- <td>{{ $item->selling_price }}</td> --}}
-                                    <td>{{ $item->status == '0' ? 'pending' : 'completed' }}</td>
-                                    <td>
-                                        <a href="{{ url('admin/view-order/'.$item->id) }}" class="btn btn-primary">View</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ date('d-m-Y',strtotime($item->created_at)) }}</td>
+                                <td>{{ $item->tracking_no }}</td>
+                                {{-- <td>{{ $item->selling_price }}</td> --}}
+                                <td>{{ $item->status == '0' ? 'pending' : 'completed' }}</td>
+                                <td>
+                                    <a href="{{ url('admin/view-order/'.$item->id) }}" class="btn btn-primary">View</a>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

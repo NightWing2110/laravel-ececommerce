@@ -24,11 +24,11 @@ class Review extends Model
 
     public function rating()
     {
-        return $this->belongsTo(Rating::class,'user_id', 'user_id');
+        return $this->belongsTo(Rating::class, 'user_id', 'user_id');
     }
 
     public function product()
     {
-        return $this->belongsTo(Product::class,'prod_id','id');
+        return $this->belongsTo(Product::class, 'prod_id', 'id');
     }
 }

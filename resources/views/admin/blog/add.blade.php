@@ -31,7 +31,7 @@
                     <label for="">New Post</label>
                     <input type="checkbox" name="new_post" value="1">
                 </div>
-                
+
                 <div class="col-md-12">
                     <label for="">Highlight Post</label>
                     <input type="checkbox" name="highlight_post" value="1">
@@ -43,7 +43,8 @@
 
                 <div class="col-md-12">
                     <label for="">Content</label>
-                    <textarea id="content" name="content" class="ckeditor" placeholder="Please Enter Content"></textarea>
+                    <textarea id="content" name="content" class="ckeditor"
+                        placeholder="Please Enter Content"></textarea>
                 </div>
 
                 <div class="col-md-12">

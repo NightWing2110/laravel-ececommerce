@@ -50,21 +50,20 @@ class BlogController extends Controller
     {
         $blogs = Blog::find($id);
         $categories = Category::all();
-        return view('admin.blog.edit',compact('blogs','categories'));
+        return view('admin.blog.edit', compact('blogs', 'categories'));
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $blogs = Blog::find($id);
-        if($request->hasFile('image'))
-        {
+        if ($request->hasFile('image')) {
             $path = 'assets/uploads/blog' . $blogs->image;
-            if(File::exists($path)){
+            if (File::exists($path)) {
                 File::delete($path);
             }
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.'.$ext;
+            $filename = time() . '.' . $ext;
             $file->move('assets/uploads/blog', $filename);
             $blogs->image = $filename;
         }
@@ -85,7 +84,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::find($id);
         $path = 'assets/uploads/blog' . $blogs->image;
-        if(File::exists($path)){
+        if (File::exists($path)) {
             File::delete($path);
         }
         $blogs->delete();

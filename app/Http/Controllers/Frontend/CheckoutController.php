@@ -99,8 +99,7 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitems);
 
-        if ($request->input('payment_mode') == "Paid By Razorpay" || $request->input('payment_mode') == "Paid By Paypal") 
-        {
+        if ($request->input('payment_mode') == "Paid By Razorpay" || $request->input('payment_mode') == "Paid By Paypal") {
             // return response()->json(['status' => 'Order placed Successfully']);
             return response()->json(['status' => 'Order placed Successfully']);
         }

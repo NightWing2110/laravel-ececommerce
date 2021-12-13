@@ -33,7 +33,7 @@ class RatingController extends Controller
                         'stars_rated' => $stars_rated
                     ]);
                 }
-                return redirect()->back()->with('status','Thank You For Rating This Product');
+                return redirect()->back()->with('status', 'Thank You For Rating This Product');
             } else {
                 return redirect()->back()->with('status', 'You cannot rate a product without purchase');
             }

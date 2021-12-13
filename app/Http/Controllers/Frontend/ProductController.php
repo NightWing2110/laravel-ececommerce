@@ -11,9 +11,8 @@ class ProductController extends Controller
 {
     public function productlist()
     {
-         $product = Product::all();
-         $categories = Category::all();
-         return view('frontend.products.list',compact('product','categories'));
+        $product = Product::all();
+        $categories = Category::all();
+        return view('frontend.products.list', compact('product', 'categories'));
     }
-
 }

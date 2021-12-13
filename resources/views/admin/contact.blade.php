@@ -20,17 +20,18 @@
             </thead>
             <tbody>
                 @foreach($contact as $item)
-                    <tr class="odd gradeX" align="center">
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->name}}</td>
-                        <td>{{$item->address}}</td>
-                        <td>{{$item->phone}}</td>
-                        <td>{{$item->subject}}</td>
-                        <td>{{$item->message}}</td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('admin.contacts.delete',$item->id) }}"> Delete</a>
-                        </td>
-                    </tr>
+                <tr class="odd gradeX" align="center">
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->address}}</td>
+                    <td>{{$item->phone}}</td>
+                    <td>{{$item->subject}}</td>
+                    <td>{{$item->message}}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{{ route('admin.contacts.delete',$item->id) }}">
+                            Delete</a>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>

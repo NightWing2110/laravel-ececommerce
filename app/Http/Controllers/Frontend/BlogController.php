@@ -12,19 +12,19 @@ class BlogController extends Controller
     public function bloglist()
     {
         $blogs = Blog::all();
-        return view('frontend.blogs.list',compact('blogs'));
+        return view('frontend.blogs.list', compact('blogs'));
     }
 
     public function blogview($slug)
     {
-        $blog = Blog::where('slug',$slug)->first();
+        $blog = Blog::where('slug', $slug)->first();
         $blog->update([
             'view_counts' => $blog->view_counts + 1,
         ]);
-        $relate = Blog::where('category_id',$blog->category_id)->take(2)->inRandomOrder()->get();
+        $relate = Blog::where('category_id', $blog->category_id)->take(2)->inRandomOrder()->get();
 
         $highlight = Blog::where('highlight_post', 1)
-        ->take(3)->get();
-        return view('frontend.blogs.view',compact('blog','relate'));
+            ->take(3)->get();
+        return view('frontend.blogs.view', compact('blog', 'relate'));
     }
 }
