@@ -24,6 +24,22 @@ class ProductController extends Controller
     public function insert(Request $request)
     {
         $products = new Product();
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'small_description' => 'required',
+            'description' => 'required',
+            'original_price' => 'required',
+            'selling_price' => 'required',
+            'tax' => 'required',
+            'qty' => 'required',
+            'meta_title' => 'required',
+            'meta_keywords' => 'required',
+            'meta_description' => 'required',
+            'image' => 'required',
+
+        ]);
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();

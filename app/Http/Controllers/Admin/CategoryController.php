@@ -30,6 +30,14 @@ class CategoryController extends Controller
             $file->move('assets/uploads/category/', $filename);
             $category->image = $filename;
         }
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'description' => 'required',
+            'meta_title' => 'required',
+            'meta_keywords' => 'required',
+            'meta_description' => 'required',
+        ]);
 
         $category->name = $request->name;
         $category->slug = $request->slug;

@@ -33,6 +33,14 @@ class BlogController extends Controller
             $file->move('assets/uploads/blog/', $filename);
             $blogs->image = $filename;
         }
+        $request->validate([
+            'title' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'image' => 'required',
+        ]);
+
         $blogs->title = $request->title;
         $blogs->category_id = $request->category_id;
         $blogs->description = $request->description;
