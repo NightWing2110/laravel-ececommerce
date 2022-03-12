@@ -136,7 +136,7 @@ $(document).ready(function() {
                         //"order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                         "handler": function(responsea) {
                             // alert(responsea.razorpay_payment_id);
-                            alert('Order placed Successfully');
+                            // alert('Order placed Successfully');
                             $.ajax({
                                 method: "post",
                                 url: "/place-order",
@@ -154,11 +154,13 @@ $(document).ready(function() {
                                     'payment_mode': 'Paid By Razorpay',
                                     'payment_id': responsea.razorpay_payment_id
                                 },
-                                dataType: "dataType",
+                                // dataType: "dataType",
                                 success: function(responseb) {
-                                    alert(responseb.status);
-                                    // swal(responseb.statuss);
-                                    // window.location.href = '/my-orders';
+                                    // alert(responseb.status);
+                                    swal(responseb.status)
+                                        .then((value) => {
+                                            window.location.href = '/my-orders';
+                                        });
                                 }
                             });
                         },

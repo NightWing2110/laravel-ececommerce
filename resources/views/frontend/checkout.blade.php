@@ -204,11 +204,14 @@ Checkout
                             'payment_mode': 'Paid By Paypal',
                             'payment_id': details.id
                         },
-                        dataType: "dataType",
+                        // dataType: "dataType",
                         success: function(response) {
                             // alert(response.status);
-                            // swal(responseb.statuss);
-                            // window.location.href = '/my-orders';
+                             swal(response.status)
+                            .then((value) => {
+                                window.location.href = '/my-orders';
+                            });
+                            //  window.location.href = '/my-orders';
                         }
                     });
                 });
