@@ -1,6 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ route('index') }}">NightWing-Shop</a>
+        <div class="search-bar">
+            <form action="{{ url('searchproduct')}}" method="POST">
+                @csrf
+                <div class="input-group">
+                    <input type="search" class="form-control" name="product_name" required id="search-product" placeholder="Search"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                    <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

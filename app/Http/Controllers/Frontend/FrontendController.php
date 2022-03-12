@@ -81,4 +81,36 @@ class FrontendController extends Controller
             return view('frontend.products.viewproduct', compact('product', 'ratings', 'rating_value', 'user_rating', 'reviews'));
         }
     }
+
+    public function productlistAjax()
+    {
+        $products = Product::select('name')->where('status', '0')->get();
+        $data = [];
+        foreach ($products as $item) {
+            $data[] = $item['name'];
+        }
+        return $data;
+    }
+
+    public function searchProduct(Request $request)
+    {
+        $search_product = $request->product_name;
+
+        if($search_product != "")
+        {
+            $product = Product::where("name","LIKE","%$search_product%")->first();
+            if($product)
+            {
+                return redirect('view-category/'.$product->category->slug.'/'.$product->slug);
+            }
+            else
+            {
+                return redirect()->back()->with("Status","No product matched your search");
+            }
+        }
+        else
+        {
+            return redirect()->back();
+        }
+    }
 }

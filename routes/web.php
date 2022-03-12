@@ -49,7 +49,9 @@ Route::get('view-category/{slug}', [FrontendFrontendController::class, 'viewcate
         ->name('view-category');
 Route::get('view-category/{cate_slug}/{prod_slug}', [FrontendFrontendController::class, 'productview']);
 
-
+#Search
+Route::get('product-list',[FrontendFrontendController::class,'productlistAjax']);
+Route::post('searchproduct',[FrontendFrontendController::class,'searchProduct']);
 #Web/Product
 Route::get('product',[FrontendProductController::class,'productlist'])
         ->name('product');
