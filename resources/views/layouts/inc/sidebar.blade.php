@@ -29,13 +29,13 @@
       </li>
       <li class="nav-item {{ Request::is('products') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.products.index') }}">
-          <i class="material-icons">products</i>
+          <i class="material-icons">bubble_chart</i>
           <p>Product</p>
         </a>
       </li>
       <li class="nav-item {{ Request::is('add-product') ? 'active' : '' }} ">
         <a class="nav-link" href="{{ route('admin.products.add') }}">
-          <i class="material-icons">products</i>
+          <i class="material-icons">bubble_chart</i>
           <p>Add Product</p>
         </a>
       </li>
