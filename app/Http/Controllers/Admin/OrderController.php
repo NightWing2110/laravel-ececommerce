@@ -20,7 +20,7 @@ class OrderController extends Controller
     {
         $order_product = DB::table('orders')->join('order_items', 'orders.id', '=', 'order_items.order_id')
             ->join('products', 'order_items.prod_id', '=', 'products.id')->where('order_id', $id)->get();
-        $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
+        $orders = Order::where('id', $id)->first();
         return view('admin.orders.view', compact('orders', 'order_product'));
     }
 
