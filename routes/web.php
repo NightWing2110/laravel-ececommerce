@@ -137,7 +137,7 @@ Route::middleware(['auth'])->group(function () {
                 ->name('wishlist');
 
         #Web/Razorpay
-        Route::post('proceed-to-pay',[CheckoutController::class,'razorpaycheck']);
+        Route::post('proceed-to-pay',[CheckoutController::class,'razorpaycheck']);   //Checkout with UPI ID --> nightwing@upi
 });
 
 
@@ -202,13 +202,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
         #Admin/Blog
         Route::get('blogs',[BlogController::class,'index'])
-                    ->name('admin.blog.index');      
+                    ->name('admin.blog.index');
         Route::get('create',[BlogController::class,'create'])
-                    ->name('admin.blog.create');       
+                    ->name('admin.blog.create');
         Route::post('store',[BlogController::class,'store'])
-                    ->name('admin.blog.store');       
+                    ->name('admin.blog.store');
         Route::get('edit/{id}',[BlogController::class,'edit'])
-                    ->name('admin.blog.edit');        
+                    ->name('admin.blog.edit');
         Route::put('update/{id}',[BlogController::class,'update'])
                     ->name('admin.blog.update');
         Route::get('delete/{id}',[BlogController::class,'delete'])
