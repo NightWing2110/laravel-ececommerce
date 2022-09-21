@@ -17,7 +17,7 @@ class ProductController extends Controller
     }
     public function add()
     {
-        $category = Category::all();
+        $category = Category::orderBy('name','ASC')->get();
         return view('admin.product.add', compact('category'));
     }
 
@@ -33,9 +33,6 @@ class ProductController extends Controller
             'selling_price' => 'required',
             'tax' => 'required',
             'qty' => 'required',
-            'meta_title' => 'required',
-            'meta_keywords' => 'required',
-            'meta_description' => 'required',
             'image' => 'required',
 
         ]);
@@ -58,9 +55,6 @@ class ProductController extends Controller
         $products->qty = $request->qty;
         $products->status = $request->status == TRUE ? '1' : '0';
         $products->trending = $request->trending == TRUE ? '1' : '0';
-        $products->meta_title = $request->meta_title;
-        $products->meta_keywords = $request->meta_keywords;
-        $products->meta_description = $request->meta_description;
         $products->save();
         return redirect()->route('admin.products.index')->with('status', 'Create Product Successfully');
     }
@@ -68,8 +62,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
-        $categories = Category::all();
-        return view('admin.product.edit', compact('products', 'categories'));
+        $category = Category::orderBy('name','ASC')->get();
+        $categories = Category::find($id);
+        return view('admin.product.edit', compact('products', 'category', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -98,9 +93,6 @@ class ProductController extends Controller
         $products->qty = $request->qty;
         $products->status = $request->status == TRUE ? '1' : '0';
         $products->trending = $request->trending == TRUE ? '1' : '0';
-        $products->meta_title = $request->meta_title;
-        $products->meta_keywords = $request->meta_keywords;
-        $products->meta_description = $request->meta_description;
         $products->update();
         return redirect()->route('admin.products.index')->with('status', 'Product Update Successfully');
     }

@@ -17,7 +17,9 @@ class CategoryController extends Controller
 
     public function add()
     {
-        return view('admin.category.add');
+//        $category = Category::where('parent_id', 0)->get();
+        $category = Category::orderBy('name','ASC')->get();
+        return view('admin.category.add', compact('category'));
     }
 
     public function insert(Request $request)
@@ -33,27 +35,23 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required',
-            'description' => 'required',
-            'meta_title' => 'required',
-            'meta_keywords' => 'required',
-            'meta_description' => 'required',
+            'parent_id' => 'required',
+            'image' => 'required'
         ]);
 
         $category->name = $request->name;
         $category->slug = $request->slug;
-        $category->description = $request->description;
         $category->status = $request->status == TRUE ? '1' : '0';
         $category->popular = $request->popular == TRUE ? '1' : '0';
-        $category->meta_title = $request->meta_title;
-        $category->meta_keywords = $request->meta_keywords;
-        $category->meta_description = $request->meta_description;
+        $category->parent_id = $request->parent_id;
         $category->save();
         return redirect()->route('admin.categories.index')->with('status', 'Create Category Successfully');
     }
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+        $categories = Category::orderBy('name','ASC')->get();
+        return view('admin.category.edit', compact('category','categories'));
     }
     public function update(Request $request, $id)
     {
@@ -71,12 +69,9 @@ class CategoryController extends Controller
         }
         $category->name = $request->name;
         $category->slug = $request->slug;
-        $category->description = $request->description;
         $category->status = $request->status == TRUE ? '1' : '0';
         $category->popular = $request->popular == TRUE ? '1' : '0';
-        $category->meta_title = $request->meta_title;
-        $category->meta_keywords = $request->meta_keywords;
-        $category->meta_description = $request->meta_description;
+        $category->parent_id = $request->parent_id;
         $category->update();
         return redirect()->route('admin.categories.index')->with('status', 'Category Update Successfully');
     }

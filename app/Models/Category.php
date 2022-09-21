@@ -20,5 +20,11 @@ class Category extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'parent_id'
     ];
+
+    public function child()
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
 }

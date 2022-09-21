@@ -11,7 +11,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Description</th>
+                    <th>Parent_id</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->description }}</td>
+                    <td>{{ $item->parent_id }}</td>
                     <td>
                         <img src="{{ asset('assets/uploads/category/'.$item->image) }}" width="100px" alt="Image here">
                     </td>

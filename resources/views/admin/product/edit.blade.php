@@ -12,10 +12,8 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <select class="form-select" name="cate_id">
-                        @foreach ($categories as $item)
-                        <option value="{{ $item->id }}" @if($products->cate_id == $item->id) selected @endif>{{
-                            $item->name }}</option>
-                        @endforeach
+                        <option value="{{ $categories->id }}">{{$categories->name}}</option>
+                        <?php showCategories($category)?>
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -60,20 +58,6 @@
                     <label for="">Quanlity</label>
                     <input type="number" class="form-control" value="{{ $products->qty }}" name="qty">
                 </div>
-                <div class="col-md-12">
-                    <label for="">Meta Title</label>
-                    <input type="text" class="form-control" value="{{ $products->meta_title }}" name="meta_title">
-                </div>
-
-                <div class="col-md-12">
-                    <label for="">Meta Keywords</label>
-                    <textarea class="form-control" name="meta_keywords">{{ $products->meta_keywords }}</textarea>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="">Meta Description</label>
-                    <textarea class="form-control" name="meta_description">{{ $products->meta_description }}</textarea>
-                </div>
                 @if ($products->image)
                 <img src="{{ asset('assets/uploads/products/'.$products->image) }}" width="150px" alt="Product Image">
                 @endif
@@ -98,4 +82,19 @@
         </form>
     </div>
 </div>
+
+<?php
+function showCategories($categories, $parent_id = 0, $char = '')
+{
+    foreach ($categories as $key => $item)
+    {
+        if($item->parent_id == $parent_id)
+        {
+            echo '<option value="'.$item->id.'">'.$char.$item->name.'</option>';
+            unset($categories[$key]);
+            showCategories($categories, $item->id, $char. ' -- ');
+        }
+    }
+}
+?>
 @endsection

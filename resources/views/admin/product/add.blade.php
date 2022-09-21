@@ -21,9 +21,7 @@
                 <div class="col-md-12 mb-3">
                     <select class="form-select" name="cate_id">
                         <option value="">Select Category</option>
-                        @foreach($category as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                        @endforeach
+                            <?php showCategories($category) ?>
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -66,21 +64,6 @@
                     <input type="number" class="form-control" name="qty">
                 </div>
                 <div class="col-md-12">
-                    <label for="">Meta Title</label>
-                    <input type="text" class="form-control" name="meta_title">
-                </div>
-
-                <div class="col-md-12">
-                    <label for="">Meta Keywords</label>
-                    <textarea class="form-control" name="meta_keywords"></textarea>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="">Meta Description</label>
-                    <textarea class="form-control" name="meta_description"></textarea>
-                </div>
-
-                <div class="col-md-12">
                     <input type="file" name="image" class="form-control" accept="image/*" />
                 </div>
 
@@ -101,4 +84,22 @@
         </form>
     </div>
 </div>
+
+<?php
+function showCategories($categories, $parent_id = 0, $char = '')
+{
+    foreach ($categories as $key => $item)
+    {
+        if($item->parent_id == $parent_id)
+        {
+            echo '<option value="'.$item->id.'">'.$char.$item->name.'</option>';
+            unset($categories[$key]);
+            showCategories($categories, $item->id, $char. ' -- ');
+        }
+    }
+}
+?>
 @endsection
+
+
+
