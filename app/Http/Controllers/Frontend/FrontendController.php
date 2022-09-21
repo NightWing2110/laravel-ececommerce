@@ -21,8 +21,10 @@ class FrontendController extends Controller
         $tablet = Product::where('cate_id', '4')->take(15)->get();
         $wristwatch = Product::where('cate_id', '5')->take(15)->get();
         $categorylist = Category::where('status', '0')->get();
+        $categoryParent = Category::where('parent_id', 0)->get();
+        $categoryChild = Category::where('parent_id', 2)->get();
         // dd($categorylist);
-        return view('frontend.index', compact('featured_products', 'trending_category', 'cellphone', 'laptop', 'tablet', 'wristwatch', 'categorylist'));
+        return view('frontend.index', compact('featured_products', 'trending_category', 'cellphone', 'laptop', 'tablet', 'wristwatch', 'categorylist','categoryParent','categoryChild'));
     }
 
     public function category()

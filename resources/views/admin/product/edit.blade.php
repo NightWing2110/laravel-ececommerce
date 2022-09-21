@@ -12,8 +12,8 @@
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <select class="form-select" name="cate_id">
-                        <option value="{{ $categories->id }}">{{$categories->name}}</option>
-                        <?php showCategories($category)?>
+                        <option value="">Category</option>
+                        <?php showCategories($categories)?>
                     </select>
                 </div>
                 <div class="col-md-6">

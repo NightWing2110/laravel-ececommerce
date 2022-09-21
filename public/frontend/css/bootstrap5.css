@@ -6493,6 +6493,8 @@ fieldset:disabled .btn {
 }
 
 .carousel-inner {
+    /*border: 2px solid red;*/
+    margin-top: -20px;
     position: relative;
     width: 100%;
     overflow: hidden

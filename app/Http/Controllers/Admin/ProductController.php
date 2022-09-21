@@ -62,8 +62,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
-        $category = Category::orderBy('name','ASC')->get();
-        $categories = Category::find($id);
+        $categories = Category::orderBy('name','ASC')->get();
+        $category = Category::find($id);
         return view('admin.product.edit', compact('products', 'category', 'categories'));
     }
 
