@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
-
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
@@ -9,7 +7,6 @@ use App\Models\Rating;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class FrontendController extends Controller
 {
     public function index()
@@ -21,10 +18,8 @@ class FrontendController extends Controller
         $tablet = Product::where('cate_id', '4')->take(15)->get();
         $wristwatch = Product::where('cate_id', '5')->take(15)->get();
         $categorylist = Category::where('status', '0')->get();
-        $categoryParent = Category::where('parent_id', 0)->get();
-        $categoryChild = Category::where('parent_id', 2)->get();
         // dd($categorylist);
-        return view('frontend.index', compact('featured_products', 'trending_category', 'cellphone', 'laptop', 'tablet', 'wristwatch', 'categorylist','categoryParent','categoryChild'));
+        return view('frontend.index', compact('featured_products', 'trending_category', 'cellphone', 'laptop', 'tablet', 'wristwatch', 'categorylist'));
     }
 
     public function category()
@@ -51,7 +46,6 @@ class FrontendController extends Controller
                 $rating_sum = Rating::where('prod_id', $products->id)->sum('stars_rated');
                 $user_rating = Rating::where('prod_id', $products->id)->where('user_id', Auth::id())->first();
                 $reviews = Review::where('prod_id', $products->id)->get();
-
                 if ($ratings->count() > 0) {
                     $rating_value = $rating_sum / $ratings->count();
                 } else {
@@ -65,7 +59,6 @@ class FrontendController extends Controller
             return redirect('/')->with('status', 'No such category found');
         }
     }
-
     public function product($prod_slug)
     {
         if (Product::where('slug', $prod_slug)->exists()) {
@@ -74,7 +67,6 @@ class FrontendController extends Controller
             $rating_sum = Rating::where('prod_id', $product->id)->sum('stars_rated');
             $user_rating = Rating::where('prod_id', $product->id)->where('user_id', Auth::id())->first();
             $reviews = Review::where('prod_id', $product->id)->get();
-
             if ($ratings->count() > 0) {
                 $rating_value = $rating_sum / $ratings->count();
             } else {
@@ -83,7 +75,6 @@ class FrontendController extends Controller
             return view('frontend.products.viewproduct', compact('product', 'ratings', 'rating_value', 'user_rating', 'reviews'));
         }
     }
-
     public function productlistAjax()
     {
         $products = Product::select('name')->where('status', '0')->get();
@@ -93,11 +84,9 @@ class FrontendController extends Controller
         }
         return $data;
     }
-
     public function searchProduct(Request $request)
     {
         $search_product = $request->product_name;
-
         if($search_product != "")
         {
             $product = Product::where("name","LIKE","%$search_product%")->first();
