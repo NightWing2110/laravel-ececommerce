@@ -2,7 +2,6 @@
 
 @section('title', $products->name)
 
-
 @section('content')
 
 <!-- Modal -->
@@ -20,7 +19,6 @@
                     <div class="rating-css">
                         <div class="star-icon">
                             @if ($user_rating)
-
                             @for ($i = 1; $i <= $user_rating->stars_rated; $i++)
                                 <input type="radio" value="{{ $i }}" name="product_rating" checked id="rating{{ $i }}">
                                 <label for="rating{{ $i }}" class="fa fa-star"></label>
@@ -29,7 +27,6 @@
                                     value="{{ $j }}" name="product_rating" id="rating{{ $j }}">
                                     <label for="rating{{ $j }}" class="fa fa-star"></label>
                                     @endfor
-
                                     @else
                                     <input type="radio" value="1" name="product_rating" checked id="rating1">
                                     <label for="rating1" class="fa fa-star"></label>
@@ -53,7 +50,6 @@
         </div>
     </div>
 </div>
-
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
         <h6 class="mb-0">
@@ -69,7 +65,6 @@
         </h6>
     </div>
 </div>
-
 <div class="container pb-5">
     <div class="card-shadow product_data">
         <div class="card-body">
@@ -84,7 +79,6 @@
                         <label style="font-size: 16px;" class="float-end badge bg-danger trending-tag">Trending</label>
                         @endif
                     </h2>
-
                     <hr>
                     <label class="me-3">Orginal Price : <s>Rs {{ number_format($products->original_price).' VNĐ'
                             }}</s></label>
@@ -103,7 +97,6 @@
                                     No Ratings
                                     @endif
                                 </span>
-
                     </div>
                     <p class="mt-3">
                         {!! $products->small_description !!}

@@ -37,9 +37,6 @@ Product
                                     alt="Product image">
                                 <div class="card-body">
                                     <h5>{{ $prod->name }}</h5>
-                                    {{-- <p>
-                                        {{ $prod->description }}
-                                    </p> --}}
                                 </div>
                             </div>
                         </a>

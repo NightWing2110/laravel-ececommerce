@@ -68,17 +68,14 @@ My Orders
                                                 width="50px" alt=""></td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                             <h6>Total: {{ number_format($total).' VNĐ' }}</h6>
                             <h6>Payment Mode: {{ $item->payment_mode }}</h6>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>

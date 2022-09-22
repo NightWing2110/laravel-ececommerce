@@ -30,7 +30,6 @@
                         <a href="{{ route('admin.categories.delete',$item->id) }}"
                             class="btn btn-primary btn-sm">Delete</a>
                     </td>
-
                 </tr>
                 @endforeach
             </tbody>

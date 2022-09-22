@@ -22,7 +22,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach ($orders as $item)
                             <tr>
                                 <td>{{ date('d-m-Y',strtotime($item->created_at)) }}</td>

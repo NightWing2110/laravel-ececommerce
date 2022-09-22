@@ -2,7 +2,6 @@
 
 @section('title', $blog->title)
 
-
 @section('content')
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
@@ -28,28 +27,19 @@
                         <small>{{ \Carbon\Carbon::parse($blog->created_at)->format('d-m-Y') }}</small>
                         <small>By: {{ $blog->user->name }}</small>
                         <small><i class="fa fa-eye"></i>{{ $blog->view_counts }}</small>
-                    </div><!-- end meta -->
+                    </div>
                     <p class="mt-3">
                         {!! $blog->content !!}
                     </p>
                 </div>
-
                 <div class="col-md-4 border-right">
                     <h4 style="color: red" class="small-title">Hot Trending-You may also like</h4>
                     @foreach ($relate as $item)
                     <div class="blog-box">
-                        {{-- <div class="post-media">
-                            <a href="#" title="">
-                                <img src="#" alt="picture" class="img-fluid">
-                                <div class="hovereffect">
-                                    <span class=""></span>
-                                </div><!-- end hover -->
-                            </a>
-                        </div><!-- end media --> --}}
                         <div class="blog-meta">
                             <h4><a href="{{ route('view-blog',$item->slug) }}" title="">{{ $item->title }}</a></h4>
-                        </div><!-- end meta -->
-                    </div><!-- end blog-box -->
+                        </div>
+                    </div>
                     @endforeach
                 </div>
             </div>

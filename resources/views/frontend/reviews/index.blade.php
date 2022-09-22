@@ -2,7 +2,6 @@
 
 @section('title', 'Write A Review')
 
-
 @section('content')
 
 <div class="container py-5">

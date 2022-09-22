@@ -34,6 +34,7 @@ class CategoryController extends Controller
             'meta_title' => 'required',
             'meta_keywords' => 'required',
             'meta_description' => 'required',
+            'image' => 'required'
         ]);
 
         $category->name = $request->name;

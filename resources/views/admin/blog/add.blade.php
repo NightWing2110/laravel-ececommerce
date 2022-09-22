@@ -30,32 +30,26 @@
                     <label for="">Title</label>
                     <input type="text" class="form-control" name="title" placeholder="Please Enter Title">
                 </div>
-
                 <div class="col-md-6">
                     <label for="">Description</label>
                     <input type="text" class="form-control" name="description" placeholder="Please Enter Description">
                 </div>
-
                 <div class="col-md-12">
                     <label for="">New Post</label>
                     <input type="checkbox" name="new_post" value="1">
                 </div>
-
                 <div class="col-md-12">
                     <label for="">Highlight Post</label>
                     <input type="checkbox" name="highlight_post" value="1">
                 </div>
-
                 <div class="col-md-12">
                     <input type="file" name="image" class="form-control" accept="image/*" />
                 </div>
-
                 <div class="col-md-12">
                     <label for="">Content</label>
                     <textarea id="content" name="content" class="ckeditor"
                         placeholder="Please Enter Content"></textarea>
                 </div>
-
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

@@ -154,12 +154,9 @@ Wellcome to NightWing-Shop
                 </div>
                 @endforeach
             </div>
-
         </div>
     </div>
 </div>
-
-
 @endsection
 
 @section('scripts')
@@ -181,6 +178,5 @@ Wellcome to NightWing-Shop
                 }
             }
         })
-
 </script>
 @endsection

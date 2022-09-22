@@ -52,20 +52,6 @@
                         <label for="">Quanlity</label>
                         <input type="number" class="form-control" value="{{ $products->qty }}" name="qty">
                     </div>
-                    <div class="col-md-12">
-                        <label for="">Meta Title</label>
-                        <input type="text" class="form-control" value="{{ $products->meta_title }}" name="meta_title">
-                    </div>
-
-                    <div class="col-md-12">
-                        <label for="">Meta Keywords</label>
-                        <textarea class="form-control" name="meta_keywords">{{ $products->meta_keywords }}</textarea>
-                    </div>
-
-                    <div class="col-md-12">
-                        <label for="">Meta Description</label>
-                        <textarea class="form-control" name="meta_description">{{ $products->meta_description }}</textarea>
-                    </div>
                     @if ($products->image)
                         <img src="{{ asset('assets/uploads/products/'.$products->image) }}" width="150px" alt="Product Image">
                     @endif

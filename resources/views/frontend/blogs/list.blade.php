@@ -20,12 +20,6 @@ Product
 <div class="py-5">
     <div class="container">
         <div class="row">
-            {{-- <div class="col-md-2">
-                <h2>Category</h2>
-                @foreach ($categories as $item)
-                <a href="{{ route('view-category', $item->slug) }}"><br>{{ $item->name }}</a>
-                @endforeach
-            </div> --}}
             <div class="col-md-12">
                 <h2>All Blogs</h2>
                 <div class="row">
@@ -41,9 +35,6 @@ Product
                                     <small>{{ \Carbon\Carbon::parse($blog->created_at)->format('d-m-Y') }}</small>
                                     <small>{{ $blog->user->name }}</small>
                                     <small><i class="fa fa-eye"></i>{{ $blog->view_counts }}</small>
-                                    {{-- <p>
-                                        {{ $prod->description }}
-                                    </p> --}}
                                 </div>
                             </div>
                         </a>

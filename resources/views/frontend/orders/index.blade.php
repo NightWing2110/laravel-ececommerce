@@ -23,7 +23,6 @@ My Orders
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach ($orders as $item)
                             <tr>
                                 <td>{{ $item->tracking_no }}</td>
@@ -38,7 +37,6 @@ My Orders
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

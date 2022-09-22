@@ -61,7 +61,6 @@ My Cart
             <h4>THERE ARE NO PRODUCT IN YOUR WISHLIST</h4>
             @endif
         </div>
-
     </div>
 </div>
 @endsection

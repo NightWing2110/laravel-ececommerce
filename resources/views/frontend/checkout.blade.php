@@ -186,7 +186,7 @@ Checkout
                     var state = $('.state').val();
                     var country = $('.country').val();
                     var pincode = $('.pincode').val();
-                    
+
                     $.ajax({
                         method: "post",
                         url: "/place-order",
@@ -218,6 +218,5 @@ Checkout
             }
         }).render('#paypal-button-container');
         //This function displays Smart Payment Buttons on your web page.
-
 </script>
 @endsection

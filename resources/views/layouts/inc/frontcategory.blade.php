@@ -1,6 +1,5 @@
 <div id="wrapper">
     <div id="header">
-
         <div class="col-md-12">
             <ul id="main-menu">
                 <li><a href="{{ route('index') }}">HOME</a></li>
@@ -11,6 +10,5 @@
                 <li><a href="{{ route('contacts') }}">CONTACTS</a></li>
             </ul>
         </div>
-
     </div>
 </div>

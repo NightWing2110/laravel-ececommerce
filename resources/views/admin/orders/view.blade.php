@@ -69,11 +69,9 @@ My Orders
                                                 width="50px" alt=""></td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
                             <h6>Total: {{ number_format($total).' VNĐ' }}</h6>
-
                             <div class="mt-5 px-2">
                                 <label for="">Order Status</label>
                                 <form action="{{ url('update-order/'.$orders->id) }}" method="POST">
@@ -90,10 +88,8 @@ My Orders
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
