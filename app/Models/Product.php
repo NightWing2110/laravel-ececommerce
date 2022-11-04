@@ -23,7 +23,6 @@ class Product extends Model
         'tax',
         'status',
         'trending',
-        'meta_title',
         'meta_keywords',
         'meta_description',
     ];
