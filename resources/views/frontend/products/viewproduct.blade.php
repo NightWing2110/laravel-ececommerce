@@ -109,6 +109,7 @@
                     <div class="row mt-2">
                         <div class="col-md-3">
                             <input type="hidden" value="{{ $product->id }}" class="prod_id">
+                            @if ($product->qty > 0)
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3" style="width:130px">
                                 <button class="input-group-text decrement-btn">-</button>
@@ -116,6 +117,7 @@
                                     class="form-control text-center" />
                                 <button class="input-group-text increment-btn">+</button>
                             </div>
+                            @endif
                         </div>
                         <div class="col-md-9">
                             <br />
@@ -123,9 +125,10 @@
                             <button type="button" class="btn btn-success me-3 addToCartBtn float-start">Add To Cart
                                 <i class="fa fa-heart"></i></button>
                             @endif
-
+                            @if ($product->qty > 0)
                             <button type="button" class="btn btn-success addtoWishlist me-3 float-start">Add To Wishlist
                                 <i class="fa fa-shopping-cart"></i></button>
+                            @endif
                         </div>
                     </div>
                 </div>
