@@ -33,6 +33,15 @@ class MyProfileController extends Controller
         $information->state = $request->state;
         $information->country = $request->country;
         $information->pincode = $request->pincode;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/profiles/', $filename);
+            $information->image = $filename;
+        }
+
         $information->update();
 
         return redirect()->route('my-profile')->with('status', 'Updated Profile Successfully');

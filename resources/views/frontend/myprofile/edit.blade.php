@@ -42,12 +42,19 @@
                                     <label for="">Country</label>
                                     <input class="form-control" value="{{ $information->country }}" name="country"><br>
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
                             </div>
                             <div class="col-md-6">
                                 <h3>Picture</h3>
                                 <hr>
+                                @if ($information->image)
+                                    <img src="{{ asset('assets/uploads/profiles/' . $information->image) }}" width="100px"
+                                        alt="Profile Image here">
+                                @endif
+                                <div class="col-md-6">
+                                    <input type="file" name="image" class="form-control" accept="image/*" />
+                                </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

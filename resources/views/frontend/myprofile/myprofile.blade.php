@@ -22,7 +22,7 @@
                                     class="btn btn-warning text-white">Edit</a>
                                 <hr>
                                 <label for="">First Name</label>
-                                <div class="border p-2">{{ $information->email }}</div>
+                                <div class="border p-2">{{ $information->name }}</div>
                                 <label for="">Last Name</label>
                                 <div class="border p-2">{{ $information->lname }}</div>
                                 <label for="">Email</label>
@@ -31,12 +31,18 @@
                                 <div class="border p-2">{{ $information->phone }}</div>
                                 <label for="">Address</label>
                                 <div class="border p-2">
+                                    {{ $information->address1 }}<br>
+                                    {{ $information->address2 }}<br>
+                                    {{ $information->city }}<br>
                                     {{ $information->country }}<br>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <h3>Picture</h3>
+                            <div class="col-md-6"
+                                style="text-align: center;display: flex; align-item: center; flex-direction: column; align-item: center">
+                                <h3 style="margin-top: 38px">Picture</h3>
                                 <hr>
+                                <div><img src="{{ asset('assets/uploads/profiles/' . $information->image) }}" width="300px"
+                                        style="margin-top: -10px;" alt="Image here"></div>
                             </div>
                         </div>
                     </div>

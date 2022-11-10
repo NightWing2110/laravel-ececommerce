@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserControllerAdmin;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -196,8 +196,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
         #Admin/User
-        Route::get('users', [DashboardController::class, 'users']);
-        Route::get('view-users/{id}', [DashboardController::class, 'viewuser']);
+        Route::get('users', [UserControllerAdmin::class, 'users']);
+        Route::get('view-users/{id}', [UserControllerAdmin::class, 'viewuser']);
 
         #Admin/Contact
         Route::get('contacts', [AdminContactController::class, 'contacts'])
