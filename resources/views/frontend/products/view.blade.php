@@ -59,9 +59,7 @@
             <a href="{{ url('view-category/' . $products->category->slug) }}">
                 {{ $products->category->name }}
             </a> /
-            <a href="{{ url('view-category/' . $products->category->slug . '/' . $products->slug) }}">
                 {{ $products->name }}
-            </a>
         </h6>
     </div>
 </div>
