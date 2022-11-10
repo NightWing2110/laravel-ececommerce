@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyProfileController;
-use App\Http\Controllers\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -202,7 +201,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('users', [UserControllerAdmin::class, 'users']);
         Route::get('view-users/{id}', [UserControllerAdmin::class, 'viewuser']);
 
-        
+
         #Admin/Contact
         Route::get('contacts', [AdminContactController::class, 'contacts'])
                 ->name('contact');
