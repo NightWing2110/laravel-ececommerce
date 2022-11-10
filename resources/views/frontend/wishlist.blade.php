@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('title')
-My Cart
+My WishList
 @endsection
 
 @section('content')
@@ -58,7 +58,10 @@ My Cart
                 @endforeach
             </div>
             @else
-            <h4>THERE ARE NO PRODUCT IN YOUR WISHLIST</h4>
+            <h4></h4>
+            <div class="card-body text-center">
+                <h2>THERE ARE <i class="fa fa-shopping-cart"></i> NO PRODUCT IN YOUR WISHLIST</h2>
+            </div>
             @endif
         </div>
     </div>
