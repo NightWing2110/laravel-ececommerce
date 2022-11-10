@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,18 +40,23 @@ use App\Http\Controllers\MyProfileController;
 // });
 
 
-#Web/Category
 Route::get('/', [FrontendFrontendController::class, 'index'])
         ->name('index');
+
+
+#Web/Category
 Route::get('category', [FrontendFrontendController::class, 'category'])
         ->name('category');
 Route::get('view-category/{slug}', [FrontendFrontendController::class, 'viewcategory'])
         ->name('view-category');
 Route::get('view-category/{cate_slug}/{prod_slug}', [FrontendFrontendController::class, 'productview']);
 
+
 #Search
 Route::get('product-list', [FrontendFrontendController::class, 'productlistAjax']);
 Route::post('searchproduct', [FrontendFrontendController::class, 'searchProduct']);
+
+
 #Web/Product
 Route::get('product', [FrontendProductController::class, 'productlist'])
         ->name('product');
@@ -60,12 +66,10 @@ Route::get('category1', [FrontendProductController::class, 'category']);
 
 
 #Web/Blog
-
 Route::get('blog', [FrontendBlogController::class, 'bloglist'])
         ->name('blog');
 Route::get('view-blog/{blog_slug}', [FrontendBlogController::class, 'blogview'])
         ->name('view-blog');
-
 
 
 #Web/Contact
@@ -75,16 +79,10 @@ Route::post('sendcontact', [ContactController::class, 'sendcontact'])
         ->name('contact.store');
 
 
-
 Auth::routes();
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
 Route::get('load-cart-data', [CartController::class, 'cartcount']);
 Route::get('load-wishlist-data', [WishlistController::class, 'wishlistcount']);
-
-
 
 
 #Web/Cart
@@ -106,21 +104,26 @@ Route::prefix('google')->name('google.')->group(function () {
 });
 
 
-
 Route::middleware(['auth'])->group(function () {
         #Web/Cart
         Route::get('cart', [CartController::class, 'viewcart'])
                 ->name('cart');
+
+
         #Web/Checkout
         Route::get('checkout', [CheckoutController::class, 'index'])
                 ->name('checkout');
         Route::post('place-order', [CheckoutController::class, 'placeorder'])
                 ->name('place-order');
+
+
         #Web/Order
         Route::get('my-orders', [UserController::class, 'index'])
                 ->name('my-orders');
         Route::get('view-order/{id}', [UserController::class, 'view'])
                 ->name('view-order/');
+
+
         #Web/MyProfile
         Route::get('my-profile', [MyProfileController::class, 'profile'])
                 ->name('my-profile');
@@ -129,8 +132,10 @@ Route::middleware(['auth'])->group(function () {
         Route::put('update-profile/{id}', [MyProfileController::class, 'update'])
                 ->name('update-profile');
 
+
         #Web/Rating
         Route::post('add-rating', [RatingController::class, 'add']);
+
 
         #Web/Review
         Route::get('add-review/{product_slug}/userreview', [ReviewController::class, 'add']);
@@ -138,16 +143,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('edit-review/{product_slug}/userreview', [ReviewController::class, 'edit']);
         Route::put('update-review', [ReviewController::class, 'update']);
 
+
         #Web/Wishlist
         Route::get('wishlist', [WishlistController::class, 'index'])
                 ->name('wishlist');
 
+
         #Web/Razorpay
         Route::post('proceed-to-pay', [CheckoutController::class, 'razorpaycheck']);   //Checkout with UPI ID --> nightwing@upi
+
+
 });
-
-
-
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -185,7 +191,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
                 ->name('admin.products.delete');
 
 
-
         #Admin/Order
         Route::get('orders', [OrderController::class, 'index']);
         Route::get('admin/view-order/{id}', [OrderController::class, 'view']);
@@ -193,12 +198,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('order-history', [OrderController::class, 'orderhistory']);
 
 
-
-
         #Admin/User
         Route::get('users', [UserControllerAdmin::class, 'users']);
         Route::get('view-users/{id}', [UserControllerAdmin::class, 'viewuser']);
 
+        
         #Admin/Contact
         Route::get('contacts', [AdminContactController::class, 'contacts'])
                 ->name('contact');
