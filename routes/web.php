@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserControllerAdmin;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\Frontend\BlogController as FrontendBlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
@@ -101,6 +102,10 @@ Route::prefix('google')->name('google.')->group(function () {
         Route::get('login', [GoogleController::class, 'loginWithGoogle'])->name('login');
         Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
+
+
+#Chatbot
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
 
 
 Route::middleware(['auth'])->group(function () {

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     {{-- Font Awesome --}}
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
         integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <style>
         a {
@@ -32,6 +32,17 @@
         }
     </style>
 </head>
+
+{{-- Chatbot --}}
+<script>
+    var botmanWidget = {
+        aboutText: '',
+        introMessage: "✋ Hi! I'm NightWing, Your Assistant!!!"
+    };
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
 <body>
     @include('layouts.inc.frontnavbar')
     <div class="content">
@@ -63,8 +74,7 @@
     @if (session('status'))
     <script>
         swal("{{ session('status') }}");
-    </script>
-    @endif
+    </script> @endif
     @yield('scripts')
 </body>
 </html>
