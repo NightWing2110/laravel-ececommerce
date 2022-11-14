@@ -1,6 +1,6 @@
 <div id="wrapper">
     <div id="header">
-        <div class="col-md-12">
+        <div class="py-3 mb-4 shadow-sm bg-warning border-top">
             <ul id="main-menu">
                 <li><a href="{{ route('index') }}">HOME</a></li>
                 @foreach ($categorylist as $item)
