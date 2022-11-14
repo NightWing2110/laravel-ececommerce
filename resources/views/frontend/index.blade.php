@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <h2>Featured Product</h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div class="owl-carousel owl-theme">
                     @foreach ($featured_products as $prod)
                         <div class="item">
                             <a href="{{ url('view-product', $prod->slug) }}">
@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <h2>Cellphone</h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div class="owl-carousel owl-theme">
                     @foreach ($cellphone as $product)
                         <div class="item">
                             <a href="{{ url('view-product', $product->slug) }}">
@@ -64,7 +64,7 @@
         <div class="container">
             <div class="row">
                 <h2>Laptop</h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div class="owl-carousel owl-theme">
                     @foreach ($laptop as $product)
                         <div class="item">
                             <a href="{{ url('view-product', $product->slug) }}">
@@ -91,7 +91,7 @@
         <div class="container">
             <div class="row">
                 <h2>Tablet</h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div class="owl-carousel owl-theme">
                     @foreach ($tablet as $product)
                         <div class="item">
                             <a href="{{ url('view-product', $product->slug) }}">
@@ -118,7 +118,7 @@
         <div class="container">
             <div class="row">
                 <h2>Wristwatch</h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div class="owl-carousel owl-theme">
                     @foreach ($wristwatch as $product)
                         <div class="item">
                             <a href="{{ url('view-product', $product->slug) }}">
@@ -144,11 +144,11 @@
 
 @section('scripts')
     <script>
-        $('.featured-carousel').owlCarousel({
+        $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
-            nav: true,
-            dots: false,
+            nav: false,
+            dots: true,
             responsive: {
                 0: {
                     items: 1
