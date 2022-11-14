@@ -45,8 +45,8 @@ Route::get('/', [FrontendFrontendController::class, 'index'])
 
 
 #Web/Category
-Route::get('category', [FrontendFrontendController::class, 'category'])
-        ->name('category');
+// Route::get('category', [FrontendFrontendController::class, 'category'])
+//         ->name('category');
 Route::get('view-category/{slug}', [FrontendFrontendController::class, 'viewcategory'])
         ->name('view-category');
 Route::get('view-category/{cate_slug}/{prod_slug}', [FrontendFrontendController::class, 'productview']);

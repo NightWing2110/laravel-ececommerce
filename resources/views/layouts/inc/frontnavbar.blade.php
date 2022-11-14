@@ -20,9 +20,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Home</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('category') }}">Category</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('product') }}">Product</a>
                 </li>
