@@ -6,9 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h4 class="text-white">New Orders
+                    <h1 class="text-white">New Orders
                         <a href="{{ 'order-history' }}" class="btn btn-warning float-right">Orders History</a>
-                    </h4>
+                    </h1>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
