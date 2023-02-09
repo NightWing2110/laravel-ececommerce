@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
     public function contacts()
     {
-        $contact = Contact::all();
+        $contact = DB::table('contacts')->simplePaginate(5);
         return view('admin.contact', compact('contact'));
     }
 

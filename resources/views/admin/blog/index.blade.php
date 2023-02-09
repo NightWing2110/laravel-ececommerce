@@ -35,6 +35,8 @@
                 </tr>
             </tbody>
         </table>
+        <h5>Pagination:</h5>
+        {{$blog->links()}}
     </div>
 </div>
 @endsection

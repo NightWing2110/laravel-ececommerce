@@ -31,6 +31,8 @@
                 @endforeach
             </tbody>
         </table>
+        <h5>Pagination:</h5>
+        {{$users->links()}}
     </div>
 </div>
 @endsection

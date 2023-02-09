@@ -35,6 +35,8 @@
                 @endforeach
             </tbody>
         </table>
+        <h5>Pagination:</h5>
+        {{$contact->links()}}
     </div>
 </div>
 @endsection

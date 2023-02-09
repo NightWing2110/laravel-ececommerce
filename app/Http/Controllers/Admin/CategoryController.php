@@ -3,12 +3,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 class CategoryController extends Controller
 {
     public function index()
     {
-        $category = Category::all();
+        $category = DB::table('categories')->simplePaginate(4);
         return view('admin.category.index', compact('category'));
     }
 

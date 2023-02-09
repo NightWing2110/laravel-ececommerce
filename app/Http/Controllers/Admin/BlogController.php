@@ -7,13 +7,14 @@ use Illuminate\Support\Str;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $blog = Blog::all();
+        $blog = DB::table('blogs')->simplePaginate(5);
         return view('admin.blog.index', compact('blog'));
     }
 
