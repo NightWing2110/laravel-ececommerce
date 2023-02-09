@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h1>Edit Product</h1>
+            <h1>Update Product</h1>
         </div>
         <div class="card-body">
             <form action="{{ route('admin.products.update',$products->id) }}" method="POST" enctype="multipart/form-data">
@@ -67,7 +67,7 @@
                         <input type="checkbox" {{ $products->trending == '1' ? 'checked' : '' }} name="trending">
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Done</button>
                     </div>
                 </div>
             </form>

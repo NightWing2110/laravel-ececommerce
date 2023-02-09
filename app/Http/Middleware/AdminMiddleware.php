@@ -26,7 +26,7 @@ class AdminMiddleware
             }
         }
         else{
-            return redirect('/home')->with('status','Pls Login First');
+            return redirect('/home')->with('status','Please Login First');
         }
     }
 }

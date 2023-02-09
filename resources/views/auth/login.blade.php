@@ -62,7 +62,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <a href="{{ route('google.login') }}" class="btn btn-user btn-success">
-                                    <i class="fa fa-google fa-fw"></i> Login with Google
+                                    <i class="fa fa-google fa-fw"></i> Loggin With Google
                                 </a>
                             </div>
                         </div>

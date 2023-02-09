@@ -62,7 +62,7 @@ My Cart
         </div>
         @else
         <div class="card-body text-center">
-            <h2>Your <i class="fa fa-shopping-cart"></i>Cart is empty</h2>
+            <h2>Your <i class="fa fa-shopping-cart"></i>Cart Is Empty</h2>
             <a href="{{ route('product') }}" class="btn btn-outline-primary float-end">Continue Shopping</a>
         </div>
         @endif

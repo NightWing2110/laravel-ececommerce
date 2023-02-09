@@ -96,7 +96,7 @@ class FrontendController extends Controller
             }
             else
             {
-                return redirect()->back()->with("Status","No product matched your search");
+                return redirect()->back()->with("Status","No Product Matched Your Search");
             }
         }
         else

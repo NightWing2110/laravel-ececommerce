@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h1>Edit/Update Category</h1>
+            <h1>Update Category</h1>
         </div>
         <div class="card-body">
             <form action="{{ route('admin.categories.update',$category->id) }}" method="POST" enctype="multipart/form-data">
@@ -36,7 +36,7 @@
                         <input type="checkbox" {{ $category->popular == 1 ? 'checked' : '' }} name="popular">
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Done</button>
                     </div>
                 </div>
             </form>

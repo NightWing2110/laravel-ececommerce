@@ -41,7 +41,7 @@
                                     <input class="form-control" value="{{ $information->state }}" name="state">
                                     <label for="">Country</label>
                                     <input class="form-control" value="{{ $information->country }}" name="country"><br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Done</button>
                             </div>
                             <div class="col-md-6">
                                 <h3>Picture</h3>

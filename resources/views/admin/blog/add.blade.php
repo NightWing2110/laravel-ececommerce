@@ -51,7 +51,7 @@
                         placeholder="Please Enter Content"></textarea>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </div>
         </form>
