@@ -113,7 +113,7 @@ class CheckoutController extends Controller
             // return response()->json(['status' => 'Order placed Successfully']);
             return response()->json(['status' => 'Order placed Successfully']);
         }
-        return redirect('/')->with('status', 'Order placed Successfully');
+        return redirect('/my-orders')->with('status', 'Order placed Successfully');
     }
 
     public function razorpaycheck(Request $request)
