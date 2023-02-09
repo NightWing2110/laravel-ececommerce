@@ -30,18 +30,6 @@
                         <textarea name="description" class="form-control"></textarea>
                     </div>
                     <div class="col-md-12">
-                        <label for="">Meta Title</label>
-                        <input type="text" class="form-control" name="meta_title">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="">Meta Keywords</label>
-                        <textarea class="form-control" name="meta_keywords"></textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="">Meta Description</label>
-                        <textarea class="form-control" name="meta_description"></textarea>
-                    </div>
-                    <div class="col-md-12">
                         <input type="file" name="image" class="form-control" accept="image/*" />
                     </div>
                     <div class="col-md-6">

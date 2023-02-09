@@ -31,10 +31,7 @@ class CategoryController extends Controller
             'name' => 'required',
             'slug' => 'required',
             'description' => 'required',
-            'meta_title' => 'required',
-            'meta_keywords' => 'required',
-            'meta_description' => 'required',
-            'image' => 'required'
+            'image' => 'required',
         ]);
 
         $category->name = $request->name;
@@ -42,9 +39,6 @@ class CategoryController extends Controller
         $category->description = $request->description;
         $category->status = $request->status == TRUE ? '1' : '0';
         $category->popular = $request->popular == TRUE ? '1' : '0';
-        $category->meta_title = $request->meta_title;
-        $category->meta_keywords = $request->meta_keywords;
-        $category->meta_description = $request->meta_description;
         $category->save();
         return redirect()->route('admin.categories.index')->with('status', 'Create Category Successfully');
     }
@@ -72,9 +66,6 @@ class CategoryController extends Controller
         $category->description = $request->description;
         $category->status = $request->status == TRUE ? '1' : '0';
         $category->popular = $request->popular == TRUE ? '1' : '0';
-        $category->meta_title = $request->meta_title;
-        $category->meta_keywords = $request->meta_keywords;
-        $category->meta_description = $request->meta_description;
         $category->update();
         return redirect()->route('admin.categories.index')->with('status', 'Category Update Successfully');
     }

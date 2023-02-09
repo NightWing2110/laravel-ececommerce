@@ -21,18 +21,6 @@
                         <label for="">Description</label>
                         <textarea name="description" class="form-control">{{ $category->description }}</textarea>
                     </div>
-                    <div class="col-md-12">
-                        <label for="">Meta Title</label>
-                        <input type="text" value="{{ $category->meta_title }}" class="form-control" name="meta_title">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="">Meta Keywords</label>
-                        <textarea class="form-control" name="meta_keywords">{{ $category->meta_keywords }}</textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="">Meta Description</label>
-                        <textarea class="form-control" name="meta_description">{{ $category->meta_description }}</textarea>
-                    </div>
                     @if($category->image)
                         <img src="{{ asset('assets/uploads/category/'.$category->image) }}" alt="Category Image">
                     @endif
