@@ -26,13 +26,7 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $blogs = new Blog();
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $file->move('assets/uploads/blog/', $filename);
-            $blogs->image = $filename;
-        }
+
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',
@@ -40,6 +34,14 @@ class BlogController extends Controller
             'content' => 'required',
             'image' => 'required',
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/blog/', $filename);
+            $blogs->image = $filename;
+        }
 
         $blogs->title = $request->title;
         $blogs->category_id = $request->category_id;

@@ -20,6 +20,13 @@ class CategoryController extends Controller
     public function insert(Request $request)
     {
         $category = new Category();
+
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
@@ -27,12 +34,6 @@ class CategoryController extends Controller
             $file->move('assets/uploads/category/', $filename);
             $category->image = $filename;
         }
-        $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'description' => 'required',
-            'image' => 'required',
-        ]);
 
         $category->name = $request->name;
         $category->slug = $request->slug;
