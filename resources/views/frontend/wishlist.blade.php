@@ -19,7 +19,6 @@ My WishList
 </div>
 <div class="container my-5">
     <div class="card shadow wishlistitems">
-        <div class="card-body">
             @if ($wishlist->count() > 0)
             <div class="card-body">
                 @foreach ($wishlist as $item)
@@ -28,10 +27,10 @@ My WishList
                         <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}" height="70px"
                             width="100px" alt="Image here">
                     </div>
-                    <div class="col-md-2 my-auto">
+                    <div class="col-md-3 my-auto">
                         <h6>{{ $item->products->name }}</h6>
                     </div>
-                    <div class="col-md-2 my-auto">
+                    <div class="col-md-1 my-auto">
                         <h6>{{ $item->products->selling_price }}</h6>
                     </div>
                     <div class="col-md-2 my-auto">
@@ -47,11 +46,10 @@ My WishList
                         <h6>Out of Stock</h6>
                         @endif
                     </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-success addToCartBtn"><i class="fa fa-shopping-cart">Add To
-                                Cart</i></button>
+                    <div class="col-md-2 my-auto">
+                        <button class="btn btn-success addToCartBtn"><i class="fa fa-shopping-cart">Add To Cart</i></button>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 my-auto">
                         <button class="btn btn-danger remove-wishlist-item"><i class="fa fa-trash"> Remove</i></button>
                     </div>
                 </div>
@@ -63,7 +61,6 @@ My WishList
                 <h2>THERE ARE <i class="fa fa-shopping-cart"></i> NO PRODUCT IN YOUR WISHLIST</h2>
             </div>
             @endif
-        </div>
     </div>
 </div>
 @endsection

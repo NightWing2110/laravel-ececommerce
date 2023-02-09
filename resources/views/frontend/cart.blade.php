@@ -49,7 +49,7 @@ My Cart
                     <h6>Out of Stock</h6>
                     @endif
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 my-auto">
                     <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"> Remove</i></button>
                 </div>
             </div>
