@@ -21,7 +21,7 @@
                 @foreach ($products as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->category->name }}</td>
+                        <td>{{$item->cate_id}}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ number_format($item->selling_price) }}</td>
                         <td>
@@ -36,6 +36,8 @@
                 @endforeach
                 </tbody>
             </table>
+            <h5>Pagination:</h5>
+            {{$products->links()}}
         </div>
     </div>
 @endsection

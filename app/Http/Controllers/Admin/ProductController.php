@@ -5,11 +5,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = DB::table('products')->simplePaginate(10);
         return view('admin.product.index', compact('products'));
     }
     public function add()
